@@ -1,0 +1,18 @@
+server:
+  port: 8083
+logging:
+  level: debug
+spring:
+  dubbo:
+    application:
+      name: gmall-manage-service
+    registry:
+      protocol: zookeeper
+      address: dsjrz8:2181
+    base-package: com.atguigu.gmall
+    protocol:
+      name: dubbo
+  datasource:
+    url: jdbc:mysql://dsjrz8:3306/gmall?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&allowMultiQueries=true&rewriteBatchedStatements=true
+    username: root
+    password: python123
