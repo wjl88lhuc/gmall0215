@@ -49,4 +49,45 @@ public interface ManageService {
      * @return
      */
     BaseAttrInfo getAttrInfo(String attrId);
+
+    /**
+     * 根据 spuInfo的catalog3Id属性获取 SpuInfo集合
+     * @param spuInfo
+     * @return
+     */
+    List<SpuInfo> getSpuInfo(SpuInfo spuInfo);
+
+    // 查询所有的基本销售属性数据
+    List<BaseSaleAttr> getBaseSaleAttrList();
+
+    void saveSpuInfo(SpuInfo spuInfo);
+
+    /**
+     * sql: select * from spuImage where spuId = spuImage.getSpuId()
+     * @param spuImage
+     * @return
+     */
+    List<SpuImage> getSuImageList(SpuImage spuImage);
+
+    /**
+     * 根据spuId获取销售属性集合
+     * @param spuId
+     * @return
+     */
+    List<SpuSaleAttr> getSpuSaleAttrList(String spuId);
+
+    void saveSkuInfo(SkuInfo skuInfo);
+
+    SkuInfo getSkuInfoBySkuId(String skuId);
+
+    List<SkuImage> getSkuImageBySkuId(String skuId);
+
+    List<SpuSaleAttr> selectSpuSaleAttrListCheckBySku(SkuInfo skuInfo);
+
+    /**
+     * 根据spuId查询销售属性值
+     * @param spuId
+     * @return
+     */
+    List<SkuSaleAttrValue> getSkuSaleAttrValueListBySpu(String spuId);
 }

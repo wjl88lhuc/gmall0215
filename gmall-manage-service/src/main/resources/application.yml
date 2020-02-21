@@ -16,3 +16,17 @@ spring:
     url: jdbc:mysql://dsjrz8:3306/gmall?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&allowMultiQueries=true&rewriteBatchedStatements=true
     username: root
     password: python123
+# 配置Jedis
+  redis:
+    host: dsjrz8
+    port: 6379
+    database: 0
+
+# 配置mybayis的mapper.xml
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true  #驼峰转换开启
+
+
+

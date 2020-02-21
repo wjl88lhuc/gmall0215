@@ -1,0 +1,20 @@
+server:
+  port: 8084
+
+spring:
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  dubbo:
+    application:
+      name: gmall-item-web
+    registry:
+      protocol: zookeeper #spring.dubbo.registry.protocol=zookeeper
+      address: dsjrz8:2181
+    base-package: com.atguigu.gmall
+    protocol:
+      name: dubbo
+
+    consumer:
+      timeout: 10000
+      check: false

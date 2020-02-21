@@ -68,5 +68,16 @@ public class ManageController {
         return baseAttrInfo.getAttrValueList();
     }
 
+    /**
+     * http://localhost:8082/baseSaleAttrList
+     * @return
+     */
+    @RequestMapping("baseSaleAttrList")
+    public List<BaseSaleAttr> getBaseSaleAttrList(){
+        return manageService.getBaseSaleAttrList();
+    }
+
+
+
 
 }
