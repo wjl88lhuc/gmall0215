@@ -1,6 +1,7 @@
 package com.atguigu.gmall.service;
 
 import com.atguigu.gmall.bean.*;
+import scala.annotation.meta.param;
 
 import java.util.List;
 
@@ -90,4 +91,12 @@ public interface ManageService {
      * @return
      */
     List<SkuSaleAttrValue> getSkuSaleAttrValueListBySpu(String spuId);
+
+    /**
+     *根据平台属性id查询
+     * @param
+    attrValueIdList
+     * @return
+     */
+    List<BaseAttrInfo> getAttrList(List<String> attrValueIdList);
 }

@@ -1,0 +1,36 @@
+server:
+  port: 8085
+logging:
+  level: error
+spring:
+  dubbo:
+    application:
+      name: gmall-list-service
+    registry:
+      protocol: zookeeper
+      address: dsjrz8:2181
+    base-package: com.atguigu.gmall
+    protocol:
+      name: dubbo
+  datasource:
+    url: jdbc:mysql://dsjrz8:3306/gmall?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&allowMultiQueries=true&rewriteBatchedStatements=true
+    username: root
+    password: python123
+#redis
+  redis:
+    host: dsjrz8
+    port: 6379
+    database: 0
+
+#elasticsearch
+  elasticsearch:
+    jest:
+      uris: http://dsjrz8:9200
+
+#mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+

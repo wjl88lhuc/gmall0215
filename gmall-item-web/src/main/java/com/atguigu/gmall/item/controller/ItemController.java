@@ -6,6 +6,7 @@ import com.atguigu.gmall.bean.SkuImage;
 import com.atguigu.gmall.bean.SkuInfo;
 import com.atguigu.gmall.bean.SkuSaleAttrValue;
 import com.atguigu.gmall.bean.SpuSaleAttr;
+import com.atguigu.gmall.service.ListService;
 import com.atguigu.gmall.service.ManageService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,9 @@ public class ItemController {
 
     @Reference
     private ManageService manageService;
+
+    @Reference
+    private ListService listService;
 
     @RequestMapping("{skuId}.html")
     public String item(@PathVariable String skuId, HttpServletRequest request){
@@ -61,6 +65,7 @@ public class ItemController {
         request.setAttribute("spuSaleAttrList",spuSaleAttrList);
         request.setAttribute("skuInfo",skuInfo);
         System.out.println("**********方法块结束了***********");
+        listService.incrHotScore(skuId);
         return "item";
     }
 }

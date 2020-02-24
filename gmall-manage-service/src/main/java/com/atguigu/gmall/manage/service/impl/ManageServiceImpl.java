@@ -7,6 +7,7 @@ import com.atguigu.gmall.config.RedisUtil;
 import com.atguigu.gmall.manage.constant.ManageConst;
 import com.atguigu.gmall.manage.mapper.*;
 import com.atguigu.gmall.service.ManageService;
+import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -348,6 +349,12 @@ public class ManageServiceImpl implements ManageService {
         List<SkuImage> skuImageList = getSkuImageBySkuId(skuId);
         SkuInfo skuInfoResult = skuInfoMapper.selectByPrimaryKey(skuId);
         skuInfoResult.setSkuImageList(skuImageList);
+
+        //查询平台属性值
+        SkuAttrValue skuAttrValue = new SkuAttrValue();
+        skuAttrValue.setSkuId(skuId);
+        skuInfoResult.setSkuAttrValueList(skuAttrValueMapper.select(skuAttrValue));
+
         return skuInfoResult;
     }
 
@@ -371,5 +378,12 @@ public class ManageServiceImpl implements ManageService {
     @Override
     public List<SkuSaleAttrValue> getSkuSaleAttrValueListBySpu(String spuId) {
         return skuSaleAttrValueMapper.getSkuSaleAttrValueListBySpu(spuId);
+    }
+
+    @Override
+    public List<BaseAttrInfo> getAttrList(List<String> attrValueIdList) {
+        //SELECT * FROM base_attr_info bi INNER JOIN base_attr_value bv ON bi.`id` = bv.`attr_id` WHERE bv.`id` IN (13,14)
+        System.out.println("********没有出错了吧********");
+        return baseAttrInfoMapper.selectBaseAttrInfoList(attrValueIdList);
     }
 }
