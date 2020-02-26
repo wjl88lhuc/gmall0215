@@ -12,9 +12,13 @@ spring:
     base-package: com.atguigu.gmall
     protocol:
       name: dubbo
+  redis:
+    host: dsjrz8
+    port: 6379
+    database: 0
 
-server:
-  port: 8090
+#server:
+#  port: 8090
 
 
-# \u914D\u7F6E\u6CE8\u518C\u4E2D\u5FC3\u5730\u5740
+#spring.redis.host=192.168.67.201

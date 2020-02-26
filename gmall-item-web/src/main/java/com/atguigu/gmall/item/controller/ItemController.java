@@ -6,6 +6,7 @@ import com.atguigu.gmall.bean.SkuImage;
 import com.atguigu.gmall.bean.SkuInfo;
 import com.atguigu.gmall.bean.SkuSaleAttrValue;
 import com.atguigu.gmall.bean.SpuSaleAttr;
+import com.atguigu.gmall.config.LoginRequire;
 import com.atguigu.gmall.service.ListService;
 import com.atguigu.gmall.service.ManageService;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,8 @@ public class ItemController {
     private ListService listService;
 
     @RequestMapping("{skuId}.html")
+    //用户在访问商品详情的时候原本是不需要登陆的，这里是为了测试，所以设置成为了需要先登陆
+    @LoginRequire(autoRedirect = true)
     public String item(@PathVariable String skuId, HttpServletRequest request){
         //根据skuId 获取数据
         SkuInfo skuInfo = manageService.getSkuInfoBySkuId(skuId);
