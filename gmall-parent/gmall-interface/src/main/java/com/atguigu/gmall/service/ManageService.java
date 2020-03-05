@@ -1,7 +1,6 @@
 package com.atguigu.gmall.service;
 
 import com.atguigu.gmall.bean.*;
-import scala.annotation.meta.param;
 
 import java.util.List;
 

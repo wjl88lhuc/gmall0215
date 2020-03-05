@@ -21,7 +21,7 @@ public class UserAddress implements Serializable {
     @Column
     private String phoneNum;
     @Column
-    private String isDefault;
+    private String isDefault;//1 表示被选中
 
 
 }
